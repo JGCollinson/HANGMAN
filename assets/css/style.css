@@ -3,9 +3,10 @@
 	box-sizing: border-box;
 }
 .body {
-	background-image: url(https://storage.googleapis.com/webpractice/bloodmoon.gif);
-	background-color: black;
 	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	background-image: url(https://storage.googleapis.com/webpractice/bloodmoon.gif);
+	background-position: 50%;
+	background-color: black;
 }
 #hero{
 	display: block;
