@@ -6,7 +6,19 @@
 	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
 	background-image: url(https://storage.googleapis.com/webpractice/bloodmoon.gif);
 	background-position: 50%;
+	backgroundScolor: black;
+}
+#content{
+	color: white;
 	background-color: black;
+	border: 10px dashed;
+	border-color: white;
+}
+#gamearea{
+	color: white;
+	background-color: black;
+	border: 10px dashed;
+	border-color: white;
 }
 #hero{
 	display: block;
