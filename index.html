@@ -21,100 +21,30 @@
 		  <div>
 			<div class="col-lg-6" id="content">
 			<img class="img-responsive center-block" src="http://2.bp.blogspot.com/-lNayu4K58gs/TiBIcPyUj-I/AAAAAAAABaM/QK9yDBMbVjc/s1600/phases.gif">
-		</div>
-		  <div id="gamearea" class="col-lg-6 text-center">
+    </div>
+		  <div class="col-lg-6 text-center"  id="content">
 			<h2>PRESS ANY KEY TO START</h2>
 			<p>WINS</p>
 			<p>CURRENT WORD</p>
-			<p id="game">_ _ _ _ _ _ _</p>
+			<p id="game"></p>
 			<p>NUMBER OF GUESSES REMAINING</p>
-			<p>15</p>
+			<p id="numguesses">15</p>
 			<p>LETTERS ALREADY GUESSED</p>
 			<p>()</p>
 		  </div>
 		  </div>
 		</div>
 		</div>
-	  </div>
+    </div>
+    <script type="text/javascript">
+
+      // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
+      var numguesses = 15;
+      var charguesses = 0;
+      var wins = 0;
+      var gameStatus = document.getElementById("game");
+      var spaces = ["_","_","_","_","_","_","_","_"];
+      document.getElementById("game").innerHTML = spaces.join(" ");
+    </script>
 </body>
 </html>
-
-
-<head>
-  <meta charset="UTF-8">
-  <title>Rock Paper Scissors Part 2
-  </title>
-</head>
-
-<body>
-
-  <div id="game">
-    Press r, p or s to start playing!
-  </div>
-
-  <script type="text/javascript">
-
-    // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
-    var numguesses = 15;
-    var charguesses = 0;
-    var wins = 0;
-    var gameStatus = document.getElementById("game");
-
-    // This function is run whenever the user presses a key.
-    document.onkeyup = function(event) {
-
-      // Determines which key was pressed.
-      var userGuess = event.key;
-
-      if (["r", "p", "s"].includes(userGuess)) {
-
-        // Randomly chooses a choice from the options array. This is the Computer's guess.
-
-        // Alerts the key the user pressed (userGuess).
-        console.log("User guess: " + userGuess);
-
-        //regolith
-				//https://en.wikipedia.org/wiki/Selene
-				//albedo
-				//https://en.wikipedia.org/wiki/Lunar_Roving_Vehicle
-				//perigee
-				//http://www.spudislunarresources.com/moon101/moon_101_intro.pdf
-				//https://gizmodo.com/scientists-just-found-the-perfect-spot-to-build-an-unde-1819658831
- 
-        if (userGuess === computerGuess) {
-          ties++;
-        } else if (userGuess === 'a') {
-          wins++;
-        } else if (userGuess === 'p' && computerGuess === 'r') {
-          wins++;
-        } else if (userGuess === 's' && computerGuess === 'p') {
-          wins++;
-        } else {
-          losses++;
-        }
-
-				
-
-        gameStatus.innerHTML = `
-        <p>You chose: ${userGuess}</p>
-        <p>Computer chose: ${computerGuess}</p>
-        <p>wins: ${wins}</p>
-        <p>losses: ${losses}</p>
-        <p>ties: ${ties}</p>
-        `;
-
-        // gameStatus.innerHTML = "<p>You chose: " + userGuess + "</p>" +
-        //   "<p>Computer chose: " + computerGuess + "</p>" +
-        //   "<p>wins: " + wins + "</p>" +
-        //   "<p>losses: " + losses + "</p>" +
-        //   "<p>ties: " + ties + "</p>";
-
-      }
-
-    };
-  </script>
-
-</body>
-
-</html>
-
