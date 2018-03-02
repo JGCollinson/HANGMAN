@@ -28,9 +28,9 @@
 			<p>CURRENT WORD</p>
 			<p id="game"></p>
 			<p>NUMBER OF GUESSES REMAINING</p>
-			<p id="numguesses">15</p>
+			<p id="numguesses"></p>
 			<p>LETTERS ALREADY GUESSED</p>
-			<p>()</p>
+			<p id="numbertime">()</p>
 		  </div>
 		  </div>
 		</div>
@@ -39,12 +39,31 @@
     <script type="text/javascript">
 
       // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
-      var numguesses = 15;
-      var charguesses = 0;
-      var wins = 0;
-      var gameStatus = document.getElementById("game");
-      var spaces = ["_","_","_","_","_","_","_","_"];
-      document.getElementById("game").innerHTML = spaces.join(" ");
+			var spaces = ["_","_","_","_","_","_","_","_"];
+			var notThese = [];
+			document.getElementById("game").innerHTML = spaces.join(" ");
+			var numboGuess = 15;
+			document.querySelector("#numguesses").innerHTML = numboGuess;
+			document.onkeyup = function(event) {
+				var userGuess = String.fromCharCode(event.which).toLowerCase();
+				var answers1 = ["r", "e", "g","o","l","i","t","h"];
+				var correctIndex = answers1.indexOf(userGuess);
+				if(answers1.includes(userGuess)){
+					spaces[correctIndex] = answers1[correctIndex];
+					document.getElementById("game").innerHTML = spaces.join(" ");
+				}
+				else {
+					numboGuess--;
+					document.querySelector("#numguesses").innerHTML = numboGuess;
+					document.querySelector("#numbotime").innerHTML = numboGuess;
+				}
+			
+			};
+
+
+//add an ittorater where you can ittorate through index numbers and add user guesses. to notThese
+
+
     </script>
 </body>
 </html>
