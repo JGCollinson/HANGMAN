@@ -1,69 +1,78 @@
 <!doctype html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GarrettCollinson</title>
-<link href="assets/css/reset.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link href="assets/css/style.css" rel="stylesheet" type="text/css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>GarrettCollinson</title>
+	<link href="assets/css/reset.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link href="assets/css/style.css" rel="stylesheet" type="text/css">
 </head>
-	  <!-- Main Body goes in Container -->
-	  <div class="container">
+<!-- Main Body goes in Container -->
+<div class="container">
+
 	<body class="body">
 		<div class="row">
-		  <div class="col-lg-12">
-			<img class="img-responsive center-block" src="https://storage.googleapis.com/webpractice/34519a4a60ed3bccbb42f072a5f60d44.png">
-		  </div>
+			<div class="col-lg-12">
+				<img class="img-responsive center-block" src="https://storage.googleapis.com/webpractice/34519a4a60ed3bccbb42f072a5f60d44.png">
+			</div>
 		</div>
 		<br>
 		<div class="row">
-		  <div>
-			<div class="col-lg-6" id="content">
-			<img class="img-responsive center-block" src="http://2.bp.blogspot.com/-lNayu4K58gs/TiBIcPyUj-I/AAAAAAAABaM/QK9yDBMbVjc/s1600/phases.gif">
-    </div>
-		  <div class="col-lg-6 text-center"  id="content">
-			<h2>PRESS ANY KEY TO START</h2>
-			<p>WINS</p>
-			<p>CURRENT WORD</p>
-			<p id="game"></p>
-			<p>NUMBER OF GUESSES REMAINING</p>
-			<p id="numguesses"></p>
-			<p>LETTERS ALREADY GUESSED</p>
-			<p id="numbertime">()</p>
-		  </div>
-		  </div>
+			<div>
+				<div class="col-lg-6" id="content">
+					<img class="img-responsive center-block" src="http://2.bp.blogspot.com/-lNayu4K58gs/TiBIcPyUj-I/AAAAAAAABaM/QK9yDBMbVjc/s1600/phases.gif">
+				</div>
+				<div class="col-lg-6 text-center" id="content">
+					<h2>PRESS ANY KEY TO START</h2>
+					<p>WINS</p>
+					<p>CURRENT WORD</p>
+					<p id="game"></p>
+					<p>NUMBER OF GUESSES REMAINING</p>
+					<p id="numguesses"></p>
+					<p>LETTERS ALREADY GUESSED</p>
+					<p id="numbertime"></p>
+				</div>
+			</div>
 		</div>
-		</div>
-    </div>
-    <script type="text/javascript">
-
-      // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
-			var spaces = ["_","_","_","_","_","_","_","_"];
-			var notThese = [];
+</div>
+</div>
+<script type="text/javascript">
+	// Creates an array that lists out all of the options (Rock, Paper, or Scissors).
+	var spaces = ["_", "_", "_", "_", "_", "_", "_", "_"];
+	var notThese = [];
+	document.getElementById("game").innerHTML = spaces.join(" ");
+	var numboGuess = 15;
+	document.querySelector("#numguesses").innerHTML = numboGuess;
+	for (var i = 1; i < 15; i++) {
+		document.onkeyup = function (event) {
+		var userGuess = String.fromCharCode(event.which).toLowerCase();
+		var answers1 = ["r", "e", "g", "o", "l", "i", "t", "h"];
+		var correctIndex = answers1.indexOf(userGuess);
+		if (answers1.includes(userGuess)) {
+			spaces[correctIndex] = answers1[correctIndex];
 			document.getElementById("game").innerHTML = spaces.join(" ");
-			var numboGuess = 15;
+			numboGuess--;
+		} else {
+			if (notThese.indexOf(userGuess)=== -1){
+				numboGuess--;
+				notThese.push(userGuess);
+			}
+			else{
+			numboGuess--;
 			document.querySelector("#numguesses").innerHTML = numboGuess;
-			document.onkeyup = function(event) {
-				var userGuess = String.fromCharCode(event.which).toLowerCase();
-				var answers1 = ["r", "e", "g","o","l","i","t","h"];
-				var correctIndex = answers1.indexOf(userGuess);
-				if(answers1.includes(userGuess)){
-					spaces[correctIndex] = answers1[correctIndex];
-					document.getElementById("game").innerHTML = spaces.join(" ");
-				}
-				else {
-					numboGuess--;
-					document.querySelector("#numguesses").innerHTML = numboGuess;
-					document.querySelector("#numbotime").innerHTML = numboGuess;
-				}
-			
-			};
+			document.querySelector("#numbertime").innerHTML = notThese.toString();
+			}
+		}
+
+		}
+
+	};
 
 
-//add an ittorater where you can ittorate through index numbers and add user guesses. to notThese
-
-
-    </script>
+	//add an ittorater where you can ittorate through index numbers and add user guesses. to notThese
+</script>
 </body>
+
 </html>
