@@ -26,3 +26,15 @@
 	margin-right: auto;
 	width: 50%;
 }
+#picText{
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	color: white;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color:#4AAAA5;
+    top: 75%;
+    left: 50%;
+	transform: translate(-50%, -50%);
+}
